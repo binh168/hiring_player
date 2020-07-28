@@ -1,0 +1,170 @@
+en:
+  hello: "Hello world"
+  layouts:
+    header:
+      login: "Login"
+      signup: "Sign Up"
+      title: "Play Together"
+      wellcome: "Well come, "
+      placeholder: "Search Player"
+    footer:
+      about: "About us"
+      about_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      location: "Our location"
+      contact: "Contact Us"
+      phone: "Phone : 123 - 456 - 789"
+      email: "E-mail : info@comapyn.com"
+      fax: "Fax : 123 - 456 - 789"
+      contact_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+    application:
+      base_title: "Play Together"
+  static_pages:
+    home:
+      placeholder: "Search player..."
+      home: "Home"
+      not_find_user: "Not Found User"
+  users:
+    index:
+      no_suitable_user: "There are no player containing the name "
+      title: "List User Search"
+      danger_loggin: "Please log in"
+    new:
+      title: "Sign Up"
+      danger_user: "Error create new user"
+      danger_profile: "Error build profile new user"
+      danger_loggin: "Please log in"
+    create:
+      info: "Success"
+    form:
+      name: "Name"
+      placeholder_name: "Name..."
+      email: "Email"
+      placeholder_email: "Email..."
+      password: "Password"
+      placeholder_password: "Password..."
+      password_confirm: "Password Confirm"
+      placeholder_password_confirm: "Password Confirm..."
+      submit: "Sign in"
+    form_update:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirm: "Password Confirm"
+      address: "Address"
+      age: "Age"
+      gender: "Gender"
+      game: "Game"
+      rank: "Rank"
+      hourly_rent: "Hourly rent"
+      avatar: "Avatar"
+      submit: "Update Your Profile"
+    edit:
+      edit: "Edit profile user"
+      update: "Update your profile"
+      danger_loggin: "Please log in"
+    update:
+      success: "Update success"
+      danger: "Fail update user profile"
+      danger_loggin: "Please log in"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    show:
+      comment: "Comment"
+      danger_loggin: "Please log in"
+      danger_unfollow: "Can't unfollow this user"
+      danger_comment: "Comment fail added"
+      success_destroy_comment: "Comment deleted"
+      danger_destroy_comment: "Fail to delete comment"
+  shared:
+    error_messages:
+      contains_error: "The form contains "
+      error: "error"
+    stats:
+      followings: "followings"
+      followers: "followers"
+  sessions:
+    new:
+      login: "Log in"
+      email: "Email"
+      password: "Password"
+      new_user: "You don't have an account?"
+    create:
+      danger: "Invalid email/password combination"
+  followers:
+    index:
+      danger: "Fail to find followers"
+      title: "Followers"
+  followings:
+    index:
+      danger: "Fail to find followings"
+      title: "Followings"
+  comments:
+    form:
+      button: "Comment"
+      placeholder: "Comment..."
+    list_comments:
+      delete: "Delete"
+    create:
+      danger_loggin: "Please loggin to comment this user"
+    destroy:
+      success_destroy_comment: "Your comment has been deleted"
+      danger_destroy_comment: "Fail to delete your comment"
+  ratings:
+    form:
+      danger_rating: "Fail to rating this user"
+      total: " total"
+  orders:
+    new:
+      hour: "hours"
+      booking: "Booking"
+    create:
+      success_order: "Order successly"
+      danger_order: "Order error"
+    show:
+      not_found_order: "Not found this order"
+      player: "PLAYER"
+      rental_period: "RENTAL PERIOD"
+      cost: "COST"
+      time_order: "TIME ORDER"
+      no: "NO"
+      title: "Your Order"
+      order_id: "order #"
+    modal:
+      booking: "Booking"
+      submit: "Book this player"
+      player: "Player: "
+      rent: "Time want to rent: "
+      cost: "Cost: "
+      current_balance: "Current balance: "
+      hours: "hours"
+  notifications:
+    index:
+      title: "Your new notification"
+      comment: "You have new "
+      from: " from "
+      player: "Player "
+      follow: " is following you"
+      booking: " want to booking you"
+      rating: " rated you"
+  sender_recipients:
+    update:
+      danger: "This notification cannot be checked"
+      not_found_notification: "Not found this notification"
+  messengers:
+    index:
+      danger_login: "Please login"
+      no_messaged: "You have never messaged this user"
+      recent: "Recent"
+      messaging: "Messaging"
+    new:
+      placeholder: "Type a message"
+    create:
+      danger: "You can't sent message to this user"
+    messenger:
+      not_found_user: "Not Found User"
+      not_found_messenger: "Not Found Messenger"
+  conversations:
+    index:
+      danger_loggin: "Please log in"

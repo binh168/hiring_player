@@ -1,0 +1,681 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color.scss';
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+  
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+body {
+  padding-top: 60px;
+}
+
+html {
+  height: 100%;
+}
+
+.navbar-header a {
+  color: $black;
+  text-transform: uppercase;
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.nav li > a:hover {
+  text-decoration: none;
+  color: $black;
+  background-color: $background_color;
+}
+
+.home {
+  position: relative;
+  height: 100vh;
+  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  background-image: url('https://images.unsplash.com/photo-1470434151738-dc5f4474c239?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb'); 
+}
+
+.search{
+  .searchbar {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: $searchbar;
+    border-radius: 30px;
+    padding: 10px;
+  }
+
+  .search_input {
+    color: $white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color: transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+  }
+
+  .searchbar:hover > .search_input {
+    width: 450px;
+    caret-color: $red;
+    transition: width 0.4s linear;
+  }
+
+  .searchbar:hover > .search_icon {
+    background: $white;
+    color: $search_icon;
+  }
+
+  .search_icon {
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80%;
+    text-decoration: none;
+  }
+}
+
+input, select, .uneditable-input {
+  border: 1px solid $border;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+#user_user_profile_attributes_gender {
+  height: 32px;
+}
+
+#img_user {
+  width: 200px;
+  height: 200px;
+  border: 1px solid $gray;
+}
+
+#user_profile_show {
+  padding-top: 40px;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray;
+  }
+}
+
+.stats {
+  overflow: inherit;
+  margin-top: 8px;
+  a {
+    margin-right: 25px;
+  }
+}
+
+#myModalFollowing, #myModalFollowers, #myModalNotification {
+  header {
+    display: none; 
+  }
+
+  footer {
+    display: none;
+  }
+
+  .img-circle {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .modal-dialog {
+    width: 35%;
+  }
+
+  .modal-title {
+    text-align: center;
+    color: $red;
+  }
+
+  .single li a, li.notification {
+    padding-left: 12px;
+    color: $black;
+    font-size: 20px;
+    border-bottom: 1px solid $border;
+    line-height: 40px;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .single li a:hover, li.notification:hover {
+    color: $blue;
+  }
+}
+
+.comments {
+  padding-top: 100px;
+}
+
+.comment-wrapper .media-list .media img {
+  width: 64px;
+  height: 64px;
+  border: 2px solid $border;
+}
+
+.comment-wrapper .media-list .media {
+  border-bottom: 1px dashed $border;
+  margin-bottom: 25px;
+  margin-top: 20px;
+}
+
+.comment-wrapper, .panel-body {
+  padding-top: 20px;
+  overflow: auto;
+}
+
+.comment-wrapper button {
+  margin-top: 10px;
+}
+
+.media-body {
+  .text-success {
+    font-size: 20px;
+  }
+}
+
+.rating-form {
+  font-size: 10px;
+  padding: 0px;
+  width: 120%;
+}
+
+.rating-disabled {
+  .clear-rating {
+    display: none;
+  }
+}
+
+.rating-active {
+  .clear-rating {
+    display: none;
+  }
+}
+
+#myModalBooking {
+  header {
+    display: none; 
+  }
+  .modal-title {
+    text-align: center;
+    color: $blue;
+  }
+  .modal-dialog {
+    width: 40%;
+  }
+  .form-control {
+    background-color: $white;
+    box-shadow: none;
+    border-radius: 40px;
+    width: 100px;
+    margin-top: 10px;
+  }
+  
+  td {
+    font-family: sans-serif;
+    padding: 10px;
+    font-weight: 600;
+    color: $darkslategray;
+    font-size: 14px;
+    margin: 5px;
+  }
+  #order_rental_period {
+    display: inline;
+  }
+}
+
+h1#show_name {
+  text-align: left;
+  color: $red;
+}
+
+#show_order.col-sm-3 {
+  a {
+    text-align: center;
+  }
+}
+
+#user_profile_show.col-md-12 .col-sm-7 {
+  border: 1px dashed $gray;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+
+.badgeAlert {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: $white;
+  line-height: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $red;
+  border-radius: 10px;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.invoice {
+  padding: 30px;
+}
+
+.invoice h2 {
+  margin-top: 0px;
+  line-height: 0.8em;
+}
+
+.invoice .small {
+  font-weight: 300;
+}
+
+.invoice hr {
+  margin-top: 10px;
+  border-color: $white;
+}
+
+.invoice .table tr.line {
+  border-bottom: 1px solid $gray;
+  color: $black;
+}
+
+.invoice .table td {
+  border: none;
+}
+
+.invoice .identity {
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+.invoice .identity strong {
+  font-weight: 600;
+}
+
+.grid {
+  position: relative;
+  width: 100%;
+  background: $background_order;
+  color: $gray;
+  border-radius: 2px;
+  margin-bottom: 25px;
+  box-shadow: 0 1px 4px $black;
+}
+
+.table.table-striped tbody tr {
+  background: $background_order ;
+}
+img {
+  max-width: 100%;
+}
+
+.inbox_people {
+  background: $white none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%; 
+  border-right: 1px solid $gray;
+}
+
+.inbox_msg {
+  border: 1px solid $gray;
+  clear: both;
+  overflow: hidden;
+}
+
+.top_spac {
+  margin-top: 20px;
+}
+
+.recent_heading {
+  float: left;
+  width: 40%;
+}
+
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%;
+}
+
+.headind_srch { 
+  padding: 10px 29px 10px 20px;
+  overflow: hidden;
+  border-bottom: 1px solid $gray;
+}
+
+.recent_heading h4 {
+  color: $ib_sent;
+  font-size: 21px;
+  margin: auto;
+}
+
+.srch_bar input {
+  border: 1px solid $gray;
+  border-width: 0 0 1px 0;
+  width: 80%;
+  padding: 2px 0 4px 6px;
+  background: none;
+}
+
+.srch_bar .input-group-addon button {
+  background: $black none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: $gray;
+  font-size: 18px;
+}
+
+.srch_bar .input-group-addon {
+  margin-left: -27px;
+}
+
+.chat_ib h5 {
+  font-size: 15px;
+  color: $black;
+  margin-bottom: 8px;
+}
+
+.chat_ib h5 span {
+  font-size: 13px;
+  float: right;
+}
+
+.chat_ib p {
+  font-size: 14px;
+  color: $gray;
+  margin: auto;
+}
+
+.chat_img {
+  float: left;
+  width: 11%;
+  img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.chat_ib {
+  float: left;
+  padding-left: 15px;
+  width: 88%;
+}
+
+.chat_people {
+  overflow: hidden;
+  clear: both;
+}
+
+.chat_list {
+  border-bottom: 1px solid $gray;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+
+.inbox_chat {
+  height: 550px;
+  overflow-y: scroll;
+}
+
+.active_chat {
+  background: $ib_background;
+}
+
+.incoming_msg_img {
+  display: inline-block;
+  width: 5%;
+  img{
+    border: 1px solid $white;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.incoming_msg {
+  margin-bottom: 20px;
+}
+
+.received_msg {
+  display: inline-block;
+  vertical-align: top;
+  width: 92%;
+ }
+ 
+ .received_withd_msg p {
+  background: $white none repeat scroll 0 0;
+  border-radius: 3px;
+  color: $black;
+  font-size: 14px;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.time_date {
+  color: $black;
+  display: block;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.received_withd_msg {
+  width: 57%;
+}
+
+.mesgs {
+  float: left;
+  padding: 30px 15px 0 25px;
+  width: 60%;
+}
+
+ .sent_msg p {
+  background: $ib_sent none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0; 
+  color: $white;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.outgoing_msg {
+  overflow: hidden;
+  margin: 26px 0 26px;
+}
+
+.sent_msg {
+  float: right;
+  width: 46%;
+  margin-right: 15px;
+}
+
+.input_msg_write input {
+  background: $white none repeat scroll 0 0;
+  border: medium none;
+  color: $gray;
+  font-size: 15px;
+  min-height: 48px;
+  width: 100%;
+}
+
+.type_msg {
+  border-top: 1px solid $gray;
+  position: relative;
+}
+
+.msg_send_btn {
+  background: $ib_sent none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: $white;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+
+.messaging {
+  padding-bottom: 50px;
+}
+
+.msg_history {
+  height: 516px;
+  overflow-y: auto;
+}
+
+.glyphicon-envelope {
+  font-size: 18px;
+}
+
+#average_rating {
+  font-size: 25px;
+}
+
+.glyphicon-star {
+  color: $star;
+}
+
+footer {
+  background-color: $background-color-footer;
+  width: 100%;
+  bottom: 0;
+  font-weight: lighter;
+  color: $white;
+  clear: both;
+  position: relative;
+  top: 50px;
+}
+
+footer h3 {
+  font-weight: lighter;
+}
+
+footer ul {
+  padding-left: 5px;
+  list-style: none;
+}
+
+footer p {
+  text-align: justify;
+  font-size: 12px;
+}
+
+footer iframe {
+  width: 100%;
+  position: relative;
+  height: 170px;
+}
+
+.sm {
+  list-style: none;
+  overflow: auto;
+}
+
+.sm li {
+  display: inline;
+  padding: 5px;
+  float: left;
+} 
+
+.sm li a img {
+  width: 32px;
+}
+
+header {
+  height: 20px;
+  a {
+    margin-top: 10px;
+  }
+  .navbar {
+    height: 80px;
+    .container {
+      margin-top: 8px;
+    }
+  }
+}
+
+body .content {
+  min-height: 50vh;
+}
+
+.inbox_chat a :hover {
+  background-color: $ib_background;
+}
+
+.navbar-right > li {
+  margin-right: 20px;
+}

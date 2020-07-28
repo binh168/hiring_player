@@ -1,0 +1,80 @@
+<header>
+  <div class="navbar navbar-fixed-top navbar-expand-lg navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to t(".title"), root_path, class: "navbar-brand" %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-right navbar-nav">
+          <li>
+            <section class="search">
+              <%= form_tag(users_path, method: :get, class: "searchbar") do |f| %>
+                <%= text_field_tag :search, "", class: "search_input", placeholder: t(".placeholder") %>
+                <%= button_tag(type: "submit", class: "search_icon") do %>
+                  <i class="glyphicon glyphicon-search"></i>
+                <% end %>
+              <% end %>
+            </section>
+          </li>
+          <% if logged_in? %>
+            <li class="dropdown" id="notifications">  
+              <%= link_to(sender_recipients_path, 
+                {data: {toggle: "modal", target: "#myModalNotification"}}, remote: true) do %>
+                <span class="glyphicon glyphicon-bell"></span>
+                <span class="badgeAlert"><%= count_notifications %></span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_conversations_path(current_user.id) do %>
+                <i><span class="glyphicon glyphicon-envelope"></span></i>
+              <% end %>
+            </li> 
+            <li class="dropdown">  
+              <%= link_to "#", :class => "dropdown-toggle", :data => { :toggle => "dropdown"} do %>
+                <%= t".wellcome" %> <%= current_user.name %> <b class="caret"></b>
+              <% end %>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <%= link_to current_user do%>
+                    <%= t ".profile" %>
+                    <i><span class="glyphicon glyphicon-user pull-right"></span></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to edit_user_path(current_user) do %>
+                    <%= t ".settings" %>
+                    <i><span class="glyphicon glyphicon-cog pull-right"></span></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to logout_path, method: :delete do %>
+                    <%= t ".logout" %>
+                    <i><span class="glyphicon glyphicon-log-out pull-right"></span></i>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to signup_path do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <%= t ".signup" %>
+              <% end %>
+            </li>
+            <li><%= link_to login_path do %>
+              <span class="glyphicon glyphicon-log-in"></span>
+              <%= t ".login" %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>		
+    </div>
+  </div>
+</header>
+
+<div id="myModalNotification" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
