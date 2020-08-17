@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_133143) do
   end
 
   create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.decimal "rating", precision: 10, scale: 2
+    t.string "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
