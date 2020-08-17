@@ -4,7 +4,6 @@ class ChangeRatingToBeFloatInRatings < ActiveRecord::Migration[6.0]
   end
 
   def down
-    change_column :ratings, :rating, :int
     change_column :comments, :comment, :float
   end
 end
