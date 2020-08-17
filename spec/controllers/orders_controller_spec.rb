@@ -3,9 +3,9 @@ RSpec.describe OrdersController, type: :controller do
   let(:current_user){ FactoryBot.create(:user) }
   let(:other_user){ FactoryBot.create(:user) }
   let(:order) { FactoryBot.create(:order) }
-  let(:order_reactionable){SenderRecipient.create(sender_id: current_user.id,
-    receiver_id: other_user.id, reactionable_type: Order.name, 
-    reactionable_id: order.id)
+  let(:order_actionable){SenderRecipient.create(sender_id: current_user.id,
+    receiver_id: other_user.id, actionable_type: Order.name, 
+    actionable_id: order.id)
   }
 
   describe "POST #create" do
@@ -15,9 +15,9 @@ RSpec.describe OrdersController, type: :controller do
       end
     end
 
-    describe "create new order reactionable" do
+    describe "create new order actionable" do
       context "create new order success" do
-        it{expect{order_reactionable}.to change { SenderRecipient.count }.by(1) }
+        it{expect{order_actionable}.to change { SenderRecipient.count }.by(1) }
       end
     end
   end

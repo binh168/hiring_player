@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     
     if @comment.save
-      @comment_reactionable = current_user.active_comment.build receiver_id: params[:user_id], reactionable: @comment
+      @comment_actionable = current_user.active_comment.build receiver_id: params[:user_id], actionable: @comment
       
-      if @comment_reactionable.save
+      if @comment_actionable.save
         respond_to :js
       else
         flash.danger[:success] = t ".danger_comment"

@@ -3,9 +3,9 @@ class RatingsController < ApplicationController
 
   def create
     if @rating.save
-      @rating_reactionable = current_user.active_rating.build receiver_id: params[:user_id], reactionable: @rating
+      @rating_actionable = current_user.active_rating.build receiver_id: params[:user_id], actionable: @rating
 
-      save_rating_reactionable @rating_reactionable
+      save_rating_actionable @rating_actionable
     else
       flash.now[:danger] = t ".danger_rating"
       redirect_to request.referrer || root_path
@@ -22,7 +22,7 @@ class RatingsController < ApplicationController
     @rating = Rating.new ratings_params
   end
 
-  def save_rating_reactionable object
+  def save_rating_actionable object
     if object.save
       redirect_to "ratings/show"
     else

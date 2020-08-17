@@ -4,26 +4,26 @@ class User < ApplicationRecord
   has_one :user_profile, dependent: :destroy
 
   has_many :active, class_name: SenderRecipient.name, foreign_key: :sender_id
-  has_many :active_follow, ->{where reactionable_type: Follow.name}, class_name: SenderRecipient.name,
+  has_many :active_follow, ->{where actionable_type: Follow.name}, class_name: SenderRecipient.name,
     foreign_key: :sender_id
-  has_many :active_comment, ->{where reactionable_type: Comment.name}, class_name: SenderRecipient.name,
+  has_many :active_comment, ->{where actionable_type: Comment.name}, class_name: SenderRecipient.name,
     foreign_key: :sender_id
-  has_many :active_rating, ->{where reactionable_type: Rating.name}, class_name: SenderRecipient.name,
+  has_many :active_rating, ->{where actionable_type: Rating.name}, class_name: SenderRecipient.name,
     foreign_key: :sender_id
-  has_many :active_order, ->{where reactionable_type: Order.name}, class_name: SenderRecipient.name,
+  has_many :active_order, ->{where actionable_type: Order.name}, class_name: SenderRecipient.name,
     foreign_key: :sender_id
-  has_many :active_messenger, ->{where reactionable_type: Messenger.name}, class_name: SenderRecipient.name,
+  has_many :active_messenger, ->{where actionable_type: Messenger.name}, class_name: SenderRecipient.name,
     foreign_key: :sender_id
   has_many :passive, class_name: SenderRecipient.name, foreign_key: :receiver_id
-  has_many :passive_follow, ->{where reactionable_type: Follow.name}, class_name: SenderRecipient.name,
+  has_many :passive_follow, ->{where actionable_type: Follow.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
-  has_many :passive_comment, ->{where reactionable_type: Comment.name}, class_name: SenderRecipient.name,
+  has_many :passive_comment, ->{where actionable_type: Comment.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
-  has_many :passive_rating, ->{where reactionable_type: Rating.name}, class_name: SenderRecipient.name,
+  has_many :passive_rating, ->{where actionable_type: Rating.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
-  has_many :passive_order, ->{where reactionable_type: Order.name}, class_name: SenderRecipient.name,
+  has_many :passive_order, ->{where actionable_type: Order.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
-  has_many :passive_messenger, ->{where reactionable_type: Messenger.name}, class_name: SenderRecipient.name,
+  has_many :passive_messenger, ->{where actionable_type: Messenger.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
   has_many :following, through: :active_follow, source: :receiver
   has_many :followers, through: :passive_follow, source: :sender

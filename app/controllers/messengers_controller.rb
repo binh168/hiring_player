@@ -15,9 +15,9 @@ class MessengersController < ApplicationController
 
     ActiveRecord::Base.transaction do
       if @message.save!
-        @message_reactionable = current_user.active_messenger.build receiver_id: params[:receiver],
-          reactionable: @message
-        save_message_reactionable @message_reactionable
+        @message_actionable = current_user.active_messenger.build receiver_id: params[:receiver],
+          actionable: @message
+        save_message_actionable @message_actionable
       else
         flash.now[:danger] = t ".danger"
         redirect_to request.referrer || root_path
@@ -33,7 +33,7 @@ class MessengersController < ApplicationController
     params.require(:messenger).permit(:message)
   end
 
-  def save_message_reactionable object
+  def save_message_actionable object
     if object.save!
       respond_to :js 
     else

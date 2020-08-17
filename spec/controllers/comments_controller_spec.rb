@@ -12,13 +12,13 @@ RSpec.describe CommentsController, type: :controller do
       end
     end
 
-    describe "create new comment reactionable" do
-      let(:comment_reactionable){SenderRecipient.create(sender_id: current_user.id,
-        receiver_id: other_user.id, reactionable_type: Comment.name, 
-        reactionable_id: comment.id)
+    describe "create new comment actionable" do
+      let(:comment_actionable){SenderRecipient.create(sender_id: current_user.id,
+        receiver_id: other_user.id, actionable_type: Comment.name, 
+        actionable_id: comment.id)
       }
       context "create new comment success" do
-        it{expect{comment_reactionable}.to change { SenderRecipient.count}.by(1) }
+        it{expect{comment_actionable}.to change { SenderRecipient.count}.by(1) }
       end
     end
   end

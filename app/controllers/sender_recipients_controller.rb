@@ -14,8 +14,8 @@ class SenderRecipientsController < ApplicationController
     @follow_new = Follow.create
     @user = User.find_by id: params[:followed_id]
     current_user.follow @user
-    @sender_recipient = SenderRecipient.find_by sender_id: current_user.id, receiver_id: @user.id, reactionable_type: Follow.name
-    @sender_recipient.reactionable_id = @follow_new.id
+    @sender_recipient = SenderRecipient.find_by sender_id: current_user.id, receiver_id: @user.id, actionable_type: Follow.name
+    @sender_recipient.actionable_id = @follow_new.id
     @sender_recipient.save
 
     respond_to do |format|
@@ -36,7 +36,7 @@ class SenderRecipientsController < ApplicationController
   def destroy
     if @user
       current_user.unfollow @user
-      Follow.find_by(id: @sender_recipient.reactionable_id).destroy
+      Follow.find_by(id: @sender_recipient.actionable_id).destroy
       respond_to do |format|
         format.html {redirect_to @user}
         format.js

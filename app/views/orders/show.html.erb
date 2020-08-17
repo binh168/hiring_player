@@ -28,8 +28,8 @@
                 <tr>
                   <td><%= @order.id %></td>
                   <td class="text-center">
-                    <%= link_to user_path(@order_reactionable.sender_id) do %>
-                      <%= get_user_name @order_reactionable.sender_id %>
+                    <%= link_to user_path(@order_actionable.sender_id) do %>
+                      <%= get_user_name @order_actionable.sender_id %>
                     <% end %>
                   </td>
                   <td class="text-center"><%= @order.rental_period %></td>

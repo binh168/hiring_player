@@ -25,12 +25,12 @@ module ApplicationHelper
     @user_name ||= User.find_by(id: user_id).name
   end
   
-  def rating_reactionable user_id
+  def rating_actionable user_id
     SenderRecipient.ratings user_id
   end
 
   def average_rating user_id
-    rating = Rating.by_ids(rating_reactionable user_id).pluck(:rating)
+    rating = Rating.by_ids(rating_actionable user_id).pluck(:rating)
     if rating.empty?
       average_rating = Settings.rating_empty
     else
@@ -40,7 +40,7 @@ module ApplicationHelper
   end
 
   def user_message object
-    msg = Messenger.find_by id: object.reactionable_id
+    msg = Messenger.find_by id: object.actionable_id
 
     return msg.message if msg
     flash[:danger] = t ".not_found_user" 

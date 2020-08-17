@@ -1,6 +1,6 @@
 module UsersHelper
   def rating object, sender_id
-    id_rating ||= object.passive_rating.find_sender(sender_id).pluck :reactionable_id
+    id_rating ||= object.passive_rating.find_sender(sender_id).pluck :actionable_id
     Rating.find_by(id: id_rating).rating
   end
 

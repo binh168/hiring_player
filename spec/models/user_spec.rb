@@ -13,22 +13,22 @@ RSpec.describe User, type: :model do
     it do
       is_expected.to have_many(:active_follow).class_name(SenderRecipient.name)
         .with_foreign_key(:sender_id)
-        .conditions(reactionable_type: Follow.name)
+        .conditions(actionable_type: Follow.name)
     end
     it do
       is_expected.to have_many(:active_comment).class_name(SenderRecipient.name)
         .with_foreign_key(:sender_id)
-        .conditions(reactionable_type: Comment.name)
+        .conditions(actionable_type: Comment.name)
     end
     it do
       is_expected.to have_many(:active_rating).class_name(SenderRecipient.name)
         .with_foreign_key(:sender_id)
-        .conditions(reactionable_type: Rating.name)
+        .conditions(actionable_type: Rating.name)
     end
     it do
       is_expected.to have_many(:active_order).class_name(SenderRecipient.name)
         .with_foreign_key(:sender_id)
-        .conditions(reactionable_type: Order.name)
+        .conditions(actionable_type: Order.name)
     end
     it do
       is_expected.to have_many(:passive).class_name(SenderRecipient.name)
@@ -37,22 +37,22 @@ RSpec.describe User, type: :model do
     it do
       is_expected.to have_many(:passive_follow).class_name(SenderRecipient.name)
         .with_foreign_key(:receiver_id)
-        .conditions(reactionable_type: Follow.name)
+        .conditions(actionable_type: Follow.name)
     end
     it do
       is_expected.to have_many(:passive_comment).class_name(SenderRecipient.name)
         .with_foreign_key(:receiver_id)
-        .conditions(reactionable_type: Comment.name)
+        .conditions(actionable_type: Comment.name)
     end
     it do
       is_expected.to have_many(:passive_rating).class_name(SenderRecipient.name)
         .with_foreign_key(:receiver_id)
-        .conditions(reactionable_type: Rating.name)
+        .conditions(actionable_type: Rating.name)
     end
     it do
       is_expected.to have_many(:passive_order).class_name(SenderRecipient.name)
         .with_foreign_key(:receiver_id)
-        .conditions(reactionable_type: Order.name)
+        .conditions(actionable_type: Order.name)
     end
     it { is_expected.to have_many(:following).through(:active_follow).source(:receiver) }
     it { is_expected.to have_many(:followers).through(:passive_follow).source(:sender) }

@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 2020_02_16_133143) do
   create_table "sender_recipients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "reactionable_type"
-    t.bigint "reactionable_id"
+    t.string "actionable_type"
+    t.bigint "actionable_id"
     t.bigint "sender_id"
     t.bigint "receiver_id"
     t.boolean "checked", default: false
-    t.index ["reactionable_type", "reactionable_id"], name: "index_sender_recipients_on_reactionable_type_and_reactionable_id"
+    t.index ["actionable_type", "actionable_id"], name: "index_sender_recipients_on_actionable_type_and_actionable_id"
   end
 
   create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

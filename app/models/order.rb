@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :sender_recipients, as: :reactionable, dependent: :destroy
+  has_many :sender_recipients, as: :actionable, dependent: :destroy
 
   ORDER_PARAMS = %i(rental_period cost).freeze
 

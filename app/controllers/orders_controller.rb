@@ -1,14 +1,14 @@
 class OrdersController < ApplicationController
   before_action :logged_in_user, only: :create
-  before_action :load_order, :load_order_reactionable, only: :show
+  before_action :load_order, :load_order_actionable, only: :show
   
   def create
     @order = Order.new order_params
 
     ActiveRecord::Base.transaction do
       if @order.save!
-        @order_reactionable = current_user.active_order.build receiver_id: params[:user_id], reactionable: @order          
-        save_order_reactionable @order_reactionable
+        @order_actionable = current_user.active_order.build receiver_id: params[:user_id], actionable: @order          
+        save_order_actionable @order_actionable
       else
         flash[:danger] = t ".danger_order"
         redirect_to request.referrer || root_path
@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     params.require(:order).permit Order::ORDER_PARAMS
   end
 
-  def save_order_reactionable object
+  def save_order_actionable object
     if object.save!
       flash[:success] = t ".success_order"
       redirect_to request.referrer
@@ -42,10 +42,10 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
 
-  def load_order_reactionable
-    @order_reactionable = SenderRecipient.find_by id: params[:notification]
+  def load_order_actionable
+    @order_actionable = SenderRecipient.find_by id: params[:notification]
 
-    return if @order_reactionable
+    return if @order_actionable
     flash[:danger] = t ".not_found_order" 
     redirect_to root_path
   end

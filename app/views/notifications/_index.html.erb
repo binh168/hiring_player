@@ -6,15 +6,15 @@
   <div class="single category">
     <ul class="list-unstyled">
       <% @notifications.each do |notification| %>
-        <% if notification.reactionable_type == "Comment" %>
+        <% if notification.actionable_type == "Comment" %>
           <li class="notification">
             <%= hidden_field_tag :notification_id, notification.id %>
             <%= hidden_field_tag :path, user_path(current_user) %> 
-            <%= t ".comment" %><%= notification.reactionable_type %>
+            <%= t ".comment" %><%= notification.actionable_type %>
             <%= t ".from" %>
             <%= get_user_name notification.sender_id %>
           </li>
-        <% elsif notification.reactionable_type == "Follow" %>
+        <% elsif notification.actionable_type == "Follow" %>
           <li class="notification">
             <%= hidden_field_tag :notification_id, notification.id %>
             <%= hidden_field_tag :path, user_path(notification.sender_id) %> 
@@ -22,10 +22,10 @@
             <%= get_user_name notification.sender_id %>
             <%= t ".follow" %>
           </li>
-        <% elsif notification.reactionable_type == "Order" %>
+        <% elsif notification.actionable_type == "Order" %>
           <li class="notification">
             <%= hidden_field_tag :notification_id, notification.id %>
-            <%= hidden_field_tag :path, order_path(id: notification.reactionable_id, notification: notification) %>
+            <%= hidden_field_tag :path, order_path(id: notification.actionable_id, notification: notification) %>
             <%= t ".player" %>
             <%= get_user_name notification.sender_id %>
             <%= t ".booking" %>
