@@ -1,6 +1,6 @@
 class ChangeRatingToBeFloatInRatings < ActiveRecord::Migration[6.0]
   def up
-    change_column :ratings, :rating, :decimal, precision: 10, scale: 2
+    change_column :ratings, :rating, :float
     change_column :comments, :comment, :text
   end
 
