@@ -1,5 +1,6 @@
 class MessengersController < ApplicationController
   before_action :load_user, only: %i(index)
+  skip_before_action :verify_authenticity_token
 
   def index
     @messengers = SenderRecipient.messenger.find_messenger(current_user.id, params[:user_id])
@@ -11,7 +12,7 @@ class MessengersController < ApplicationController
   end
 
   def create
-    @message = Messenger.new message_params
+    @message = Messenger.new message: params[:message]
 
     ActiveRecord::Base.transaction do
       if @message.save!
@@ -29,13 +30,15 @@ class MessengersController < ApplicationController
 
   private
 
-  def message_params
-    params.require(:messenger).permit(:message)
-  end
-
   def save_message_actionable object
     if object.save!
-      respond_to :js 
+      mine = ApplicationController.render(
+        partial: "messengers/mine",
+        locals: {messenger: object}
+      )
+
+      ActionCable.server.broadcast "room_channel_#{params[:receiver]}",
+        mine: mine, message_actionable: object
     else
       flash.now[:danger] = t ".danger"
       redirect_to request.referrer

@@ -1,11 +1,10 @@
-<%= form_for :messenger, url: user_messengers_path(current_user.id), method: :post , remote: true do |f| %>
-  <div class="field">
-    <div class="control">
-      <%= f.text_field :message, class: "form-control", placeholder: t(".placeholder") %>
-      <%= hidden_field_tag :receiver, @user.id %>
-    </div>
+<div class="field">
+  <div class="control">
+    <input class="form-control" placeholder="Type a message" type="text" id="messenger_message">
+    <input type="hidden" name="receiver" id="receiver" value="<%= @user.id %>">
+    <button name="button" type="submit" id="msg-send-btn">
+      <i class="glyphicon glyphicon-send"></i>
+    </button>
   </div>
-  <%= f.button t(".button"), class: "msg_send_btn" do %>
-    <i class="glyphicon glyphicon-send"></i>
-  <% end %> 
-<% end %>
+</div>
+<%= javascript_pack_tag "messenger" %>

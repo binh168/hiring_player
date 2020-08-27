@@ -491,43 +491,6 @@ img {
   background: $ib_background;
 }
 
-.incoming_msg_img {
-  display: inline-block;
-  width: 5%;
-  img{
-    border: 1px solid $white;
-    height: 35px;
-    width: 35px;
-  }
-}
-
-.incoming_msg {
-  margin-bottom: 20px;
-}
-
-.received_msg {
-  display: inline-block;
-  vertical-align: top;
-  width: 92%;
- }
- 
- .received_withd_msg p {
-  background: $white none repeat scroll 0 0;
-  border-radius: 3px;
-  color: $black;
-  font-size: 14px;
-  padding: 5px 10px 5px 12px;
-  width: 100%;
-  border-radius: 20px;
-}
-
-.time_date {
-  color: $black;
-  display: block;
-  font-size: 12px;
-  margin-top: 8px;
-}
-
 .received_withd_msg {
   width: 57%;
 }
@@ -538,26 +501,56 @@ img {
   width: 60%;
 }
 
- .sent_msg p {
-  background: $ib_sent none repeat scroll 0 0;
-  border-radius: 3px;
-  font-size: 14px;
-  margin: 0; 
-  color: $white;
-  padding: 5px 10px 5px 12px;
-  width: 100%;
-  border-radius: 20px;
-}
 
-.outgoing_msg {
+.message {
   overflow: hidden;
   margin: 26px 0 26px;
 }
 
 .sent_msg {
-  float: right;
-  width: 46%;
+  float: left;
+  width: 50%;
   margin-right: 15px;
+  p {
+    background: $white;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: 0; 
+    color: $black;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .time-date {
+    color: $black;
+    display: block;
+    font-size: 12px;
+    margin-top: 8px;
+    float: left;
+  }
+  &.received-msg {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    float: right;
+    p {
+      background: $ib_sent none repeat scroll 0 0;
+      border-radius: 3px;
+      font-size: 14px;
+      margin: 0; 
+      color: $white;
+      padding: 3px 10px 5px 12px;
+      width: 100%;
+      border-radius: 20px;
+    }
+    .time-date {
+      color: $black;
+      display: block;
+      font-size: 12px;
+      margin-top: 8px;
+      float: right;
+    }
+  }
 }
 
 .input_msg_write input {
@@ -574,7 +567,7 @@ img {
   position: relative;
 }
 
-.msg_send_btn {
+#msg-send-btn {
   background: $ib_sent none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;

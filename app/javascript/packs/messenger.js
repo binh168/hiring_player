@@ -1,11 +1,16 @@
 $( document ).ready(function() {
-  $('.chat_list').on('click', function(){
-    $('.mesgs').addClass('active_chat');
-    $('.user_chat > .chat_list').removeClass('active_chat');
+  $('button#msg-send-btn').click(function(event) {
+    event.preventDefault();
+    var messages = $('#messenger_message').val();
+    var receiver = $('#receiver').val();
+    var user_id =$('#current_user').attr('data-user-id');
 
-    var $this = $(this);
-    if (!$this.hasClass('active_chat')) {
-      $this.addClass('active_chat');
-    }
+    $('#messenger_message').val('');
+    $('#user_list_messengers').append('<div class="message"><div class="sent_msg received-msg"><p>'+messages+'</p></div></div>');
+    $.ajax({
+      type: 'POST',
+      url: '/users/' + user_id + '/messengers',
+      data: {message: messages, receiver: receiver, user_id: user_id},
+    });
   });
 });
