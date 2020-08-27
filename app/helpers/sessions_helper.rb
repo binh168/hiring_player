@@ -29,4 +29,8 @@ module SessionsHelper
   def current_user? user
     user && user == current_user
   end
+
+  def log_in_as user
+    post "/login", params: {session: { email: user.email, password: user.password }}
+  end
 end
