@@ -21,7 +21,7 @@
               <%= link_to(sender_recipients_path, 
                 {data: {toggle: "modal", target: "#myModalNotification"}}, remote: true) do %>
                 <span class="glyphicon glyphicon-bell"></span>
-                <span class="badgeAlert"><%= count_notifications %></span>
+                <span class="badgeAlert" id="counter_<%= current_user.id%>"><%= count_notifications %></span>
               <% end %>
             </li>
             <li>

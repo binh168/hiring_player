@@ -142,6 +142,7 @@ en:
   notifications:
     index:
       title: "Your new notification"
+    notification:
       comment: "You have new "
       from: " from "
       player: "Player "

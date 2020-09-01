@@ -24,6 +24,8 @@ class RatingsController < ApplicationController
 
   def save_rating_actionable object
     if object.save
+      ActionCable.server.broadcast "notification_channel", type: object.actionable_type,
+        receiver: object.receiver_id
       redirect_to "ratings/show"
     else
       flash.now[:danger] = t ".danger_rating"

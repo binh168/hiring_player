@@ -212,13 +212,13 @@ input, select, .uneditable-input {
   padding-top: 100px;
 }
 
-.comment-wrapper .media-list .media img {
+.comment-wrapper #media-list .media img {
   width: 64px;
   height: 64px;
   border: 2px solid $border;
 }
 
-.comment-wrapper .media-list .media {
+.comment-wrapper #media-list .media {
   border-bottom: 1px dashed $border;
   margin-bottom: 25px;
   margin-top: 20px;
