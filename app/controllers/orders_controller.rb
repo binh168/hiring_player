@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
     if object.save!
       flash[:success] = t ".success_order"
       redirect_to request.referrer
+      ActionCable.server.broadcast "notification_channel", type: object.actionable_type,
+        receiver: object.receiver_id
     else
       flash[:danger] = t ".danger_order"
       redirect_to request.referrer

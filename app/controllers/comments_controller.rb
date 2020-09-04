@@ -9,7 +9,14 @@ class CommentsController < ApplicationController
       @comment_actionable = current_user.active_comment.build receiver_id: params[:user_id], actionable: @comment
       
       if @comment_actionable.save
-        respond_to :js
+        comment = ApplicationController.render(
+          partial: "comments/comment",
+          locals: {comment: @comment_actionable},
+        )
+
+        ActionCable.server.broadcast "notification_channel", comment_view: comment,
+          type: @comment_actionable.actionable_type,
+          receiver: @comment_actionable.receiver_id
       else
         flash.danger[:success] = t ".danger_comment"
         redirect_to request.referrer || root_path

@@ -1,0 +1,34 @@
+<% case notification.actionable_type
+  when Settings.comment %>
+  <li class="notification">
+    <%= hidden_field_tag :notification_id, notification.id %>
+    <%= hidden_field_tag :path, user_path(current_user) %> 
+    <%= t ".comment" %><%= notification.actionable_type %>
+    <%= t ".from" %>
+    <%= get_user_name notification.sender_id %>
+  </li>
+<% when Settings.follow %>
+  <li class="notification">
+    <%= hidden_field_tag :notification_id, notification.id %>
+    <%= hidden_field_tag :path, user_path(notification.sender_id) %> 
+    <%= t ".player" %>
+    <%= get_user_name notification.sender_id %>
+    <%= t ".follow" %>
+  </li>
+<% when Settings.order %>
+  <li class="notification">
+    <%= hidden_field_tag :notification_id, notification.id %>
+    <%= hidden_field_tag :path, order_path(id: notification.actionable_id, notification: notification) %>
+    <%= t ".player" %>
+    <%= get_user_name notification.sender_id %>
+    <%= t ".booking" %>
+  </li>
+<% else %>
+  <li class="notification">
+    <%= hidden_field_tag :notification_id, notification.id %>
+    <%= hidden_field_tag :path, user_path(notification.sender_id) %>
+    <%= t ".player" %>
+    <%= get_user_name notification.sender_id %>
+    <%= t ".rating" %>
+  </li>
+<% end %>
