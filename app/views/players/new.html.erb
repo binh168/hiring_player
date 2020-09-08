@@ -1,12 +1,11 @@
-<% provide :title, t(".edit") %>
+<% provide :title, t(".title") %>
 <div class="row">
   <%= render "users/slidebar_update" %>
   <div class="col-md-9">
-    <h1><%= t ".update" %></h1>
-
+    <h1><%= t ".title" %></h1>
     <div class="col-md-10 col-md-offset-1">
-      <div class="row">
-        <%= render "form_update" %>
+      <div class="row" id="player-form">
+        <%= render "players/form_create" %>
       </div>
     </div>
   </div>

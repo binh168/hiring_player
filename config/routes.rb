@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :followers, only: %i(index) 
   resources :followings, only: %i(index)
   resources :comments, only: %i(create show destroy)
+  resources :players
+  resources :ranks, only: %i(index)
 end

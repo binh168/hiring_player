@@ -1,0 +1,4 @@
+$('#player_rank_id').empty();
+<% @ranks.each do |rank| %>
+  $('#player_rank_id').append($('<option value="<%= rank.id %>"><%= rank.rank %></option>'));
+<% end %>

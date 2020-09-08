@@ -1,0 +1,17 @@
+<%= form_for @player, url: players_path, method: :post do |f| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group" id="game-update">
+        <%= f.label t ".game" %>
+        <%= f.collection_select :game_id, Game.all, :id, :game, prompt: t(".select_game") %>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group" id="rank-update">
+        <%= f.label t ".rank" %>
+        <%= f.collection_select :rank_id, [], :id, :rank, prompt: t(".select_rank") %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit t(".submit"), class: "btn btn-success" %>
+<% end %>

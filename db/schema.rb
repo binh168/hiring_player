@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_133143) do
+ActiveRecord::Schema.define(version: 2020_09_04_090649) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2020_02_16_133143) do
   end
 
   create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "game"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,6 +59,25 @@ ActiveRecord::Schema.define(version: 2020_02_16_133143) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "players", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "game_id"
+    t.bigint "rank_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_players_on_game_id"
+    t.index ["rank_id"], name: "index_players_on_rank_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
+  create_table "ranks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "rank"
+    t.bigint "game_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_ranks_on_game_id"
+  end
+
   create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "rating"
     t.datetime "created_at", precision: 6, null: false
@@ -76,8 +101,6 @@ ActiveRecord::Schema.define(version: 2020_02_16_133143) do
     t.integer "age"
     t.integer "gender"
     t.integer "money"
-    t.string "game"
-    t.string "rank"
     t.integer "hourly_rent"
     t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
@@ -95,4 +118,8 @@ ActiveRecord::Schema.define(version: 2020_02_16_133143) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "players", "games"
+  add_foreign_key "players", "ranks"
+  add_foreign_key "players", "users"
+  add_foreign_key "ranks", "games"
 end

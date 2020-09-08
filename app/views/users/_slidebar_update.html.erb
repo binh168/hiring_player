@@ -1,0 +1,16 @@
+<div class="col-md-3">
+  <div class="col-md-12 col-md-offset-1">
+    <ul class="list-group list-update">
+      <li class="list-group-item" id="update-user">
+        <%= link_to edit_user_path(current_user) do %>
+          <%= t ".profile" %>
+        <% end %>
+      </li>
+      <li class="list-group-item" id="update-player">
+        <%= link_to players_path do %>
+          <%= t ".player" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
