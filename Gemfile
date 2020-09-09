@@ -22,6 +22,7 @@ gem "kaminari-bootstrap"
 gem "rails-controller-testing"
 gem "ffaker"
 gem "font_awesome5_rails"
+gem 'pry-rails'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

@@ -57,6 +57,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:following).through(:active_follow).source(:receiver) }
     it { is_expected.to have_many(:followers).through(:passive_follow).source(:sender) }
     it { is_expected.to accept_nested_attributes_for(:user_profile) }
+    it { is_expected.to have_many(:players).class_name(Player.name) }
   end
   
   describe "Validations" do

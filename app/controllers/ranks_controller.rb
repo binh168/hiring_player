@@ -1,4 +1,6 @@
 class RanksController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @game = Game.find_by id: params[:game]
 
