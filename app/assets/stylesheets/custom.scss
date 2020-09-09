@@ -1,6 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'color.scss';
+@import 'font_awesome5_webfont';
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -371,9 +372,6 @@ h1#show_name {
   box-shadow: 0 1px 4px $black;
 }
 
-.table.table-striped tbody tr {
-  background: $background_order ;
-}
 img {
   max-width: 100%;
 }
@@ -671,4 +669,20 @@ body .content {
 
 .navbar-right > li {
   margin-right: 20px;
+}
+
+.list-update {
+  margin-top: 120px;
+}
+
+.new-game {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  float: right;
+}
+
+#game-update select, #rank-update select{
+  height: 30px;
+  font-size: 18px;
+  background: $white;
 }

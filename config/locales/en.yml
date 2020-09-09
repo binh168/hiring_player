@@ -77,6 +77,9 @@ en:
       danger_comment: "Comment fail added"
       success_destroy_comment: "Comment deleted"
       danger_destroy_comment: "Fail to delete comment"
+    slidebar_update:
+      profile: "Update Profile"
+      player: "Update Player"
   shared:
     error_messages:
       contains_error: "The form contains "
@@ -169,3 +172,38 @@ en:
   conversations:
     index:
       danger_loggin: "Please log in"
+  players:
+    index:
+      title: "Your profile's player"
+      need: "You need to create "
+      game: "Game"
+      rank: "Rank"
+      add: "Add a new game"
+      not_found_player_profile: "Not found player profile"
+    new:
+      title: "Create new profile's player"
+    create:
+      success_create: "Create your profile's player success"
+      danger_create: "Can't create your profile's player"
+    edit:
+      edit: "Update Player"
+      update: "Update your profile's player"
+      not_found_player: "Not found player"
+    update:
+      success_update: "Update your profile's player success"
+      danger_update: "Can't update your profile's player"
+    destroy:
+      success_destroy_player: "Delete this game success"
+      danger_destroy_player: "Can't delete this game"
+      not_found_player: "Not found player"
+    form_update:
+      game: "Game"
+      rank: "Rank"
+      confirm: "Do you want to delete this game in your profile's player?!!"
+      submit: "Update"
+    form_create:
+      game: "Game"
+      rank: "Rank"
+      select_game: "--Select game--"
+      select_rank: "--Select rank--"
+      submit: "Create"

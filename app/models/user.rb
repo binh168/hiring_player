@@ -27,12 +27,13 @@ class User < ApplicationRecord
     foreign_key: :receiver_id
   has_many :following, through: :active_follow, source: :receiver
   has_many :followers, through: :passive_follow, source: :sender
+  has_many :players, class_name: Player.name, foreign_key: :user_id
 
   accepts_nested_attributes_for :user_profile
 
   USER_PARAMS = %i(name email password password_confirmation).freeze
   USER_UPDATE_PARAMS = [:name, :email, :password, :password_confirmation, user_profile_attributes: 
-    [:id, :address, :age, :gender, :game, :rank, :hourly_rent, :avatar]].freeze
+    [:id, :address, :age, :gender, :hourly_rent, :avatar], player_attributes: [:game_id, :rank_id]].freeze
   
   before_create :build_user_profile
   
