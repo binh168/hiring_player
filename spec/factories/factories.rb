@@ -20,4 +20,13 @@ FactoryBot.define do
   end
 
   factory :follow do; end
+
+  factory :game do
+    game {FFaker::Name.name}
+  end
+
+  factory :rank do
+    rank {FFaker::Name.name}
+    game
+  end
 end

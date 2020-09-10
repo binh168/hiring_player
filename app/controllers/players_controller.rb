@@ -43,13 +43,13 @@ class PlayersController < ApplicationController
     else
       flash[:danger] = t ".danger_destroy_player"
     end
-    redirect_to request.referrer
+    redirect_to players_path
   end
 
   private
 
   def player_params
-    params.require(:player).permit Player::PLAYER_PARAMS
+    params.permit Player::PLAYER_PARAMS
   end
 
   def find_player
