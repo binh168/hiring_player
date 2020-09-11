@@ -17,6 +17,7 @@ require("packs/notification")
 require("packs/messenger")
 require("packs/conversation")
 require("packs/player")
+require("packs/download")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

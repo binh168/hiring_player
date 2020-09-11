@@ -22,12 +22,14 @@ gem "kaminari-bootstrap"
 gem "rails-controller-testing"
 gem "ffaker"
 gem "font_awesome5_rails"
-gem 'pry-rails'
+gem "pry-rails"
+gem "rubyzip"
+gem "zip-zip"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails", "~> 4.0.0.beta2"
-  gem 'shoulda-matchers'
+  gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "factory_bot_rails"
 end

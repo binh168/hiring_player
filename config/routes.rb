@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :comments, only: %i(create show destroy)
   resources :players
   resources :ranks, only: %i(index)
+  resources :download_profiles, only: %i(index)
 end

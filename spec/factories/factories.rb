@@ -29,4 +29,8 @@ FactoryBot.define do
     rank {FFaker::Name.name}
     game
   end
+
+  factory :messenger do
+    message {"Xin chao"}
+  end
 end

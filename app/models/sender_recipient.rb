@@ -22,4 +22,6 @@ class SenderRecipient < ApplicationRecord
     where(sender_id: sender, receiver_id: receiver)
     .or(where(sender_id: receiver, receiver_id: sender))
   end
+  scope :message, -> (sender_id){where(actionable_type: Messenger.name, sender_id: sender_id)}
+  scope :find_in_time, -> (from, to){where("created_at >= ? AND created_at <= ?", from, to)}
 end

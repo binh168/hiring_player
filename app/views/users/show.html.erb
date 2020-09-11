@@ -36,6 +36,14 @@
         </div>
       </h5>
 
+      <% if current_user? @user %>
+        <input type="date" id="from" placeholder="dd-mm-yyyy">
+        <input type="date" id="to" placeholder="dd-mm-yyyy">
+        <button>
+          <%= link_to t(".download"), download_profiles_path(format: :csv), id: "download_csv" %>
+        </button>
+      <% end %>
+
       <div class="row bootstrap snippets">
         <div class="col-md-12 col-sm-12">
             <div class="comment-wrapper ">
