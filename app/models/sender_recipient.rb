@@ -24,4 +24,5 @@ class SenderRecipient < ApplicationRecord
   end
   scope :message, -> (sender_id){where(actionable_type: Messenger.name, sender_id: sender_id)}
   scope :find_in_time, -> (from, to){where("created_at >= ? AND created_at <= ?", from, to)}
+  scope :order_yesterday, ->(yesterday, now){where(created_at: yesterday..now)}
 end

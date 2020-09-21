@@ -25,6 +25,9 @@ gem "font_awesome5_rails"
 gem "pry-rails"
 gem "rubyzip"
 gem "zip-zip"
+gem "figaro"
+gem "sidekiq"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

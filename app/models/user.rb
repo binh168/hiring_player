@@ -66,4 +66,10 @@ class User < ApplicationRecord
   def following? other_user
     following.include? other_user
   end
+
+  def self.send_orders_yesterday
+    User.all.each do |user|
+      UserMailer.order_mailer(user).deliver!
+    end
+  end
 end

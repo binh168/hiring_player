@@ -1,0 +1,29 @@
+<% if @orders_yesterday.present? %>
+  <h2>Yesterday, you have <%= @orders_yesterday.count %> order(s) </h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Sender</th>
+        <th scope="col">Date</th>
+        <th scope="col">Rental period</th>
+        <th scope="col">Cost</th>
+        <th scope="col">How to pay</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders_yesterday.each do |order| %>
+        <tr>
+          <td class="text-center"><%= order.sender.name %></td>
+          <td class="text-center"><%= order.actionable.created_at.strftime("%H:%M, %d-%m-%y") %></td>
+          <td class="text-center"><%= order.actionable.rental_period %></td>
+          <td class="text-center"><%= order.actionable.cost %></td>
+          <td class="text-center">Chuyen khoan</td>
+          <td class="text-center"><%= order.actionable.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1><%= @user.name %>, you didn't have any orders yesterday</h1>
+<% end %>
