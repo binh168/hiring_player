@@ -6,6 +6,8 @@ require File.expand_path("../config/environment", __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 require "simplecov"
+require "sidekiq/testing/inline"
+
 SimpleCov.start
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -69,4 +71,10 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+RSpec::Sidekiq.configure do |config|
+  config.clear_all_enqueued_jobs = false
+  config.enable_terminal_colours = false 
+  config.warn_when_jobs_not_processed_by_sidekiq = false
 end
