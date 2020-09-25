@@ -208,3 +208,16 @@ en:
       select_game: "--Select game--"
       select_rank: "--Select rank--"
       submit: "Create"
+  user_mailer:
+    order_mailer:
+      have: "Yesterday, you have"
+      order:
+        one: "order"
+        other: "orders"
+      sender: "Senrder"
+      date: "Date"
+      rental_period: "Rental period"
+      cost: "Cost"
+      pay: "How to pay"
+      status: "Status"
+      not_have: ", you didn't have any orders yesterday"

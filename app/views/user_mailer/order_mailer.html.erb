@@ -1,0 +1,36 @@
+<% if @orders_yesterday.present? %>
+  <h2>
+    <%= t ".have" %>
+    <%= @orders_yesterday.count %>
+    <%= t ".order, count: orders_yesterday.count" %>
+  </h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"><%= t ".sender" %></th>
+        <th scope="col"><%= t ".date" %></th>
+        <th scope="col"><%= t ".rental_period" %></th>
+        <th scope="col"><%= t ".cost" %></th>
+        <th scope="col"><%= t ".pay" %></th>
+        <th scope="col"><%= t ".status" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders_yesterday.each do |order| %>
+        <tr>
+          <td class="text-center"><%= order.sender.name %></td>
+          <td class="text-center"><%= order.actionable.created_at.strftime Settings.time_order %></td>
+          <td class="text-center"><%= order.actionable.rental_period %></td>
+          <td class="text-center"><%= order.actionable.cost %></td>
+          <td class="text-center">Chuyen khoan</td>
+          <td class="text-center"><%= order.actionable.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1>
+    <%= @user.name %>
+    <%= t ".not_have" %>
+  </h1>
+<% end %>
