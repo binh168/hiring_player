@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :players
   resources :ranks, only: %i(index)
   resources :download_profiles, only: %i(index)
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 end

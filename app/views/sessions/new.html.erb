@@ -2,6 +2,25 @@
 <h1><%= t ".login" %></h1>
 
 <div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <%= link_to  user_facebook_omniauth_authorize_path do %>
+      <button class="btn facebook-btn social-btn col-md-5 col-md-offset-1" type="button">
+        <span>
+          <i class="fab fa-facebook-f"></i>
+          <%= t ".login_facebook"%>
+        </span>
+      </button>
+    <% end %>
+    <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+      <button class="btn google-btn social-btn col-md-5" type="button">
+        <span>
+          <i class="fab fa-google-plus-g"></i>
+          <%= t ".login_google"%>
+        </span>
+      </button>
+    <% end %>
+  </div>
+  <p style="text-align:center"><%= t ".or"%></p>
   <%= form_for :session, url: login_path do |f| %>
     <div class="row">
       <div class="col-xs-12">

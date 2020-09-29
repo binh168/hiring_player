@@ -94,6 +94,9 @@ en:
       email: "Email"
       password: "Password"
       new_user: "You don't have an account?"
+      login_facebook: "Sign in with Facebook"
+      login_google: "Sign in with Google+"
+      or: "OR"
     create:
       danger: "Invalid email/password combination"
   followers:
