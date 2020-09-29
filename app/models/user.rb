@@ -47,6 +47,7 @@ class User < ApplicationRecord
 
   delegate :name, :email, to: :sender_recipients, prefix: :user, allow_nil: true
 
+  devise :omniauthable, omniauth_providers: %i(facebook google_oauth2)
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 
@@ -65,5 +66,21 @@ class User < ApplicationRecord
   
   def following? other_user
     following.include? other_user
+  end
+
+  def self.from_omniauth auth
+    result = User.where(email: auth.info.email).first
+
+    if result
+      return result
+    else
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.name = auth.info.name
+        user.uid = auth.uid
+        user.provider = auth.provider
+      end
+    end
   end
 end

@@ -28,6 +28,10 @@ gem "zip-zip"
 gem "whenever", require: false
 gem "figaro"
 gem "sidekiq"
+gem "devise"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 
 group :test do
   gem "pry"
