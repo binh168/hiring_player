@@ -14,6 +14,8 @@ class User < ApplicationRecord
     foreign_key: :sender_id
   has_many :active_messenger, ->{where actionable_type: Messenger.name}, class_name: SenderRecipient.name,
     foreign_key: :sender_id
+  has_many :active_discord, ->{where actionable_type: Discord.name}, class_name: SenderRecipient.name,
+    foreign_key: :sender_id
   has_many :passive, class_name: SenderRecipient.name, foreign_key: :receiver_id
   has_many :passive_follow, ->{where actionable_type: Follow.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
@@ -24,6 +26,8 @@ class User < ApplicationRecord
   has_many :passive_order, ->{where actionable_type: Order.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
   has_many :passive_messenger, ->{where actionable_type: Messenger.name}, class_name: SenderRecipient.name,
+    foreign_key: :receiver_id
+  has_many :passive_discord, ->{where actionable_type: Discord.name}, class_name: SenderRecipient.name,
     foreign_key: :receiver_id
   has_many :following, through: :active_follow, source: :receiver
   has_many :followers, through: :passive_follow, source: :sender

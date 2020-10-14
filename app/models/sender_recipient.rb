@@ -18,6 +18,7 @@ class SenderRecipient < ApplicationRecord
   scope :ratings, -> (user_id){select(:actionable_id)
     .where(receiver_id: user_id, actionable_type: Rating.name)}
   scope :messenger, -> {where(actionable_type: Messenger.name)}
+  scope :discord, -> {where(actionable_type: Discord.name)}
   scope :find_messenger, -> (sender, receiver) do
     where(sender_id: sender, receiver_id: receiver)
     .or(where(sender_id: receiver, receiver_id: sender))

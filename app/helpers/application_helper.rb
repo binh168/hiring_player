@@ -52,7 +52,12 @@ module ApplicationHelper
     user = User.find_by id: id
 
     return user.user_profile if user
-    flash[:danger] = t ".not_found_messenger" 
+    flash[:danger] = t ".not_found_messenger"
     redirect_to root_path
+  end
+
+  def discord_url sender, receiver
+    actionable = SenderRecipient.discord.find_messenger(sender, receiver).first
+    return @url = actionable.actionable.discord_url if actionable.present?
   end
 end

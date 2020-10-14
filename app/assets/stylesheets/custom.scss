@@ -695,3 +695,13 @@ body .content {
 .google-btn{
   background-color: $google;
 }
+
+.discord {
+  a {
+    color: $discord;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $ib_sent;
+  }
+}
