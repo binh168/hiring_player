@@ -58,6 +58,6 @@ module ApplicationHelper
 
   def discord_url sender, receiver
     actionable = SenderRecipient.discord.find_messenger(sender, receiver).first
-    return @url = actionable.actionable.discord_url if actionable.present?
+    @url = actionable.actionable.discord_url if actionable.present?
   end
 end

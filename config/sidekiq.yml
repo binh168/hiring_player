@@ -3,3 +3,5 @@
 :queues:
   - default
   - users
+production:
+  concurrency: 25

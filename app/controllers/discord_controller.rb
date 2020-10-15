@@ -2,7 +2,7 @@ require "discordrb"
 
 class DiscordController < ApplicationController
   def create
-    bot = Discordrb::Bot.new token: ENV["DISCORD_ID"]
+    bot = Discordrb::Bot.new(token: ENV["DISCORD_ID"])
     bot.run :async
     server = bot.create_server "#{current_user.name}_#{params[:name]}", region = :"hongkong"
     invite = server.general_channel.make_invite.url
