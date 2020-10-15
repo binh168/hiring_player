@@ -34,6 +34,7 @@ gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "discordrb"
 gem "rbnacl-libsodium"
+gem "dotenv-rails"
 
 group :test do
   gem "pry"
@@ -56,5 +57,4 @@ end
 
 group :production do
   gem "pg"
-  gem "listen", ">= 3.0.5", "< 3.2"
 end
