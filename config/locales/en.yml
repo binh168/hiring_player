@@ -166,6 +166,8 @@ en:
       no_messaged: "You have never messaged this user"
       recent: "Recent"
       messaging: "Messaging"
+      discord_link: "Discord Link"
+      create_discord: "Create Discord Channel"
     new:
       placeholder: "Type a message"
     create:

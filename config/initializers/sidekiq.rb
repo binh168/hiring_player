@@ -1,7 +1,7 @@
 Sidekiq.configure_server do |config|
-  config.redis = {url: ENV["SIDEKIQ"]}
+  config.redis = {url: "redis://#{ENV['REDIS_SERVER']}:6379"}
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = {url: ENV["SIDEKIQ"]}
+  config.redis = {url: "redis://#{ENV['REDIS_SERVER']}:6379"}
 end

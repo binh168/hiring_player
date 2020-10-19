@@ -1,3 +1,16 @@
+<h3 class="discord">
+  <% if discord_url current_user.id, @user.id %>
+    <%= link_to @url, target: "_blank" do %>
+      <i class="fab fa-discord"></i>
+      <%= t ".discord_link" %>
+    <% end %>
+  <% else %>
+    <%= link_to discord_index_path(name: "#{@user.name}", id: "#{@user.id}"), method: :post do %>
+      <i class="fab fa-discord"></i>
+      <%= t ".create_discord" %>
+    <% end %>
+  <% end %>
+</h3>
 <div id="user_list_messengers">
   <%= render partial: "messengers/messenger", collection: @messengers %>
 </div>
