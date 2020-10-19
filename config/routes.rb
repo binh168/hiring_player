@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :messengers
     resources :conversations, only: %(index)
   end
-  resources :orders, only: %i(new create show)
+  resources :orders, only: %i(index new create show)
   resources :sender_recipients, only: %i(index create update destroy)
   resources :followers, only: %i(index)
   resources :sender_recipients, only: %i(create destroy)
@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   resources :download_profiles, only: %i(index)
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :discord, only: %(create)
+  resources :payments do
+    collection do
+      get :fee_payment
+    end
+  end
 end

@@ -1,0 +1,47 @@
+<% provide :title, "List order" %>
+<div class="row">
+  <%= render "users/slidebar_update" %>
+  <div class="col-md-9">
+    <h1><%= t".order_list" %></h1>
+    <div class="row">
+      <div class="col-md-12">
+        <% if @orders.any? %>
+          <table class="table table-striped">
+            <thead>
+              <tr class="line">
+                <td class="text-center"><strong><%= t ".player" %></strong></td>
+                <td class="text-center"><strong><%= t ".rental_period" %></strong></td>
+                <td class="text-center"><strong><%= t ".cost" %></strong></td>
+                <td class="text-center"><strong><%= t ".time_order" %></strong></td>
+                <td class="text-center"><strong><%= t ".payment" %></strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |order| %>
+                <tr>
+                  <td>
+                    <%= order.sender_recipients.first.receiver.name %>
+                  </td>
+                  <td>
+                    <%= order.rental_period %>
+                  </td>
+                  <td>
+                    <%= order.cost %>
+                  </td>
+                  <td>
+                    <%= order.created_at.strftime Settings.time_order %>
+                  </td>
+                  <td>
+                    <%= link_to t(".pay"), fee_payment_payments_path(id: order.id, cost: order.cost) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <h3><%= t".paid_all" %></h3>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
