@@ -81,6 +81,7 @@ en:
     slidebar_update:
       profile: "Update Profile"
       player: "Update Player"
+      list_order: "List Order"
   shared:
     error_messages:
       contains_error: "The form contains "
@@ -123,6 +124,11 @@ en:
       danger_rating: "Fail to rating this user"
       total: " total"
   orders:
+    index:
+      payment: "Payment"
+      paid_all: "You have paid all your orders"
+      order_list: "Order List"
+      pay: "Pay"
     new:
       hour: "hours"
       booking: "Booking"

@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
   before_action :logged_in_user, only: :create
   before_action :load_order, :load_order_actionable, only: :show
   
+  def index
+    @orders = current_user.active_order.map {|a| a.actionable if a.actionable.payment == false}
+  end
+
   def create
     @order = Order.new order_params
 
